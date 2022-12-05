@@ -3,6 +3,41 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-Hi {{ user.get_full_name }}!
-<a href="{% url 'logout' %}">Logout</a>
+<div class="flex justify-between items-center px-3">
+    <h3>All Contacts</h3>
+    <a href="{% url 'contacts:create' %}">+ New</a>
+</div>
+<table class="mt-5">
+    <thead>
+        <tr>
+            <th class="text-left px-3 py-1">Name</th>
+            <th class="text-left px-3 py-1">Email</th>
+            <th class="text-left px-3 py-1">Phone Number</th>
+            <th class="text-left px-3 py-1">Organization</th>
+            <th class="text-left px-3 py-1">Favourite?</th>
+            <th class="text-left px-3 py-1">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if contacts %}
+        {% for contact in contacts %}
+        <tr>
+            <td class="px-3 py-1">{{ contact.get_full_name }}</td>
+            <td class="px-3 py-1">{{ contact.email }}</td>
+            <td class="px-3 py-1">{{ contact.phone_number }}</td>
+            <td class="px-3 py-1">{{ contact.organization }}</td>
+            <td class="px-3 py-1">{{ contact.is_favourite }}</td>
+            <td class="px-3 py-1">
+                <a href="{% url 'contacts:edit' contact.pk %}">Edit</a>
+                <a href="{% url 'contacts:edit' contact.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="4">No records found.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
 {% endblock %}

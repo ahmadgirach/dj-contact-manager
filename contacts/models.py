@@ -20,9 +20,16 @@ class Contact(models.Model):
     avatar = models.ImageField(
         _("Avatar"), upload_to="profiles/", blank=True, null=True, default=""
     )
+    is_favourite = models.BooleanField(
+        help_text=_(
+            "Designates whether this contact has been marked as Favourite or not."
+        )
+    )
     user = models.ForeignKey(
-        _("Belonging User"),
         UserModel,
         related_name="contacts",
         on_delete=models.CASCADE,
     )
+
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"

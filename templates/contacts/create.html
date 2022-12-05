@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %} Create Contact {% endblock %}
 
 {% block content %}
-<h2>Create Contact</h2>
-<form method="post">
+<h2>{% if is_editing %} Update {% else %} Create {% endif %} Contact</h2>
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create &rarr;</button>
+    {{ form|crispy }}
+    <button type="submit">{% if is_editing %} Update {% else %} Create {% endif %} &rarr;</button>
+    <a href="{% url 'home' %}">Cancel</a>
 </form>
 {% endblock %}

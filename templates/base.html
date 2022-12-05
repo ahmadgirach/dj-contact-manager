@@ -1,14 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>{% block title %} Contact Manager - Powered by Django {% endblock %}</title>
+  <script src="{% static 'assets/js/tailwind.cdn.js' %}"></script>
 </head>
 
-<body>
+<body class="container mx-auto flex flex-col max-w-5xl justify-center items-center min-h-screen">
   {% include 'navbar.html' %}
-  <main>
+  <main class="flex-1 lg:mt-10">
     {% block content %}{% endblock %}
     {% include 'messages.html' %}
   </main>

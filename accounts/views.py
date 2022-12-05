@@ -10,6 +10,8 @@ from django.views.decorators.cache import never_cache
 
 from .forms import SigninForm, SignupForm
 
+from contacts.models import Contact
+
 
 def signup_view(request):
     form = SignupForm()
@@ -60,7 +62,11 @@ def signin_view(request):
 @never_cache
 @login_required
 def homepage_view(request):
-    return render(request, "home.html")
+    contacts = Contact.objects.all()
+    context = {
+        "contacts": contacts,
+    }
+    return render(request, "home.html", context)
 
 
 @never_cache
