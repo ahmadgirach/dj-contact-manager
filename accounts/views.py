@@ -68,3 +68,9 @@ def homepage_view(request):
 def logout_view(request):
     logout(request)
     return redirect("signin")
+
+
+@never_cache
+@login_required
+def credits_view(request):
+    return render(request, "credits.html")
