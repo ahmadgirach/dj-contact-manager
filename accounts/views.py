@@ -1,5 +1,7 @@
 """ STANDARD DJANGO IMPORTS """
 
+from django.core.paginator import Paginator
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -64,7 +66,10 @@ def signin_view(request):
 @login_required
 def homepage_view(request):
     current_user = request.user
-    search = request.GET.get("search")
+    params = request.GET
+
+    current_page = params.get("page") or 1
+    search = params.get("search")
 
     query = Q()
 
@@ -80,10 +85,13 @@ def homepage_view(request):
             | Q(phone_number__icontains=search)
         )
 
-    contacts = Contact.objects.filter(query)
+    contacts = Contact.objects.filter(query).order_by("pk")
+    paginator = Paginator(contacts, settings.RECORDS_PER_PAGE)
+    page_obj = paginator.get_page(current_page)
 
     context = {
-        "contacts": contacts,
+        "page_obj": page_obj,
+        "no_of_pages_range": range(1, page_obj.paginator.num_pages + 1),
     }
 
     return render(request, "home.html", context)
@@ -115,7 +123,7 @@ def credits_view(request):
         },
         {"category": "Icons", "caption": "Hero Icons", "url": "https://heroicons.com"},
         {
-            "category": "Table & Search box design",
+            "category": "Table, Search box design & Pagination",
             "caption": "Flowbite",
             "url": "https://flowbite.com",
         },
