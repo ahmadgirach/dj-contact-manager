@@ -77,4 +77,30 @@ def logout_view(request):
 
 
 def credits_view(request):
-    return render(request, "credits.html")
+    links = (
+        {
+            "category": "Web Framework",
+            "caption": "Django",
+            "url": "https://djangoproject.com",
+        },
+        {
+            "category": "Styling",
+            "caption": "Tailwind CSS",
+            "url": "https://tailwindcss.com",
+        },
+        {
+            "category": "Fonts",
+            "caption": "IBM Plex Sans",
+            "url": "https://fonts.google.com/specimen/IBM+Plex+Sans",
+        },
+        {"category": "Icons", "caption": "Hero Icons", "url": "https://heroicons.com"},
+        {
+            "category": "Table design",
+            "caption": "Flowbite",
+            "url": "https://flowbite.com",
+        },
+    )
+    context = {
+        "links": links,
+    }
+    return render(request, "credits.html", context)
