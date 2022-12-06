@@ -1,14 +1,12 @@
 <header class="bg-purple-700 text-white w-full p-2">
-    <nav class="flex justify-between items-center">
+    <nav class="flex justify-between items-center px-10">
         <a href="{% url 'home' %}" class="font-bold">ContactManager</a>
         <ul class="flex justify-center items-center gap-3 uppercase text-sm font-semibold">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'credits' %}">Credits</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% endif %}
         </ul>
         <div class="py-2 space-x-3">
+            {% if not user.is_authenticated %}
             <a href="{% url 'signup' %}"
                 class="pointer px-3 py-2 bg-white text-purple-800 hover:bg-purple-800 hover:text-white transition font-semibold rounded-md uppercase text-sm">
                 Sign Up
@@ -17,6 +15,9 @@
                 class="pointer px-3 py-2 bg-white text-purple-800 hover:bg-purple-800 hover:text-white transition font-semibold rounded-md uppercase text-sm">
                 Sign In
             </a>
+            {% else %}
+            <a href="{% url 'logout' %}" class="uppercase font-semibold text-sm">Logout</a>
+            {% endif %}
         </div>
     </nav>
 </header>

@@ -15,11 +15,14 @@
 
 <body class="container mx-auto flex flex-col items-center min-h-screen bg-zinc-100">
 	{% include 'navbar.html' %}
-	<main class="flex-1 lg:mt-10 flex flex-col justify-center max-w-7xl ">
+	<main class="mt-5 flex flex-1 flex-col justify-center items-center">
 		{% block content %}{% endblock %}
 		{% include 'messages.html' %}
 	</main>
 	{% include 'footer.html' %}
+
+	<!-- EXTRA JS -->
+	{% block js %}{% endblock %}
 </body>
 
 </html>

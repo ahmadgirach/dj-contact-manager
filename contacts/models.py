@@ -22,9 +22,11 @@ class Contact(models.Model):
     )
     is_favourite = models.BooleanField(
         _("Favourite?"),
-        # help_text=_(
-        #     "Designates whether this contact has been marked as Favourite or not."
-        # )
+        blank=True,
+        null=True,
+        help_text=_(
+            "Designates whether this contact has been marked as Favourite or not."
+        )
     )
     user = models.ForeignKey(
         UserModel,

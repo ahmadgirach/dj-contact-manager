@@ -7,4 +7,4 @@ class ContactForm(ModelForm):
     class Meta:
         model = Contact
         fields = "__all__"
-        exclude = ("user",)
+        exclude = ("user", "is_favourite")

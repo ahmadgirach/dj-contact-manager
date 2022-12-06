@@ -53,3 +53,12 @@ def edit_view(request, pk):
     }
 
     return render(request, "contacts/create.html", context)
+
+
+@login_required
+def delete_view(request, pk):
+    contact = Contact.objects.get(pk=pk)
+
+    if request.method == "POST":
+        contact.delete()
+        return redirect("home")

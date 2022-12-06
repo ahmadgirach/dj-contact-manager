@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="bg-white p-10 rounded-lg">
-    <h2 class="font-semibold text-2xl mb-5">Create your free account</h2>
+    <h2 class="font-semibold text-2xl text-center mb-5">Create your free account</h2>
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
