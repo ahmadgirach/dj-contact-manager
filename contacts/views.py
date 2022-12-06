@@ -26,9 +26,7 @@ def create_view(request):
         else:
             messages.error(request, "Please fix the errors!")
 
-    context = {
-        "form": form
-    }
+    context = {"form": form}
 
     return render(request, "contacts/create.html", context)
 

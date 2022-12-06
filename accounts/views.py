@@ -76,7 +76,5 @@ def logout_view(request):
     return redirect("signin")
 
 
-@never_cache
-@login_required
 def credits_view(request):
     return render(request, "credits.html")

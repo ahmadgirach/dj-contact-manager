@@ -21,9 +21,10 @@ class Contact(models.Model):
         _("Avatar"), upload_to="profiles/", blank=True, null=True, default=""
     )
     is_favourite = models.BooleanField(
-        help_text=_(
-            "Designates whether this contact has been marked as Favourite or not."
-        )
+        _("Favourite?"),
+        # help_text=_(
+        #     "Designates whether this contact has been marked as Favourite or not."
+        # )
     )
     user = models.ForeignKey(
         UserModel,

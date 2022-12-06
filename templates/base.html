@@ -4,18 +4,22 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %} Contact Manager - Powered by Django {% endblock %}</title>
-  <script src="{% static 'assets/js/tailwind.cdn.js' %}"></script>
+	<meta charset="UTF-8">
+	<title>{% block title %} Contact Manager - Powered by Django {% endblock %}</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+	<script src="{% static 'assets/js/tailwind.cdn.js' %}"></script>
 </head>
 
-<body class="container mx-auto flex flex-col max-w-5xl justify-center items-center min-h-screen">
-  {% include 'navbar.html' %}
-  <main class="flex-1 lg:mt-10">
-    {% block content %}{% endblock %}
-    {% include 'messages.html' %}
-  </main>
-  {% include 'footer.html' %}
+<body class="container mx-auto flex flex-col items-center min-h-screen bg-zinc-100">
+	{% include 'navbar.html' %}
+	<main class="flex-1 lg:mt-10 flex flex-col justify-center max-w-7xl ">
+		{% block content %}{% endblock %}
+		{% include 'messages.html' %}
+	</main>
+	{% include 'footer.html' %}
 </body>
 
 </html>

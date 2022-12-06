@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
 
+{% load tailwind_filters %}
+
 {% block title %} Sign In {% endblock %}
 
 {% block content %}
-<h2>Sign In to your account</h2>
-<form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Sign In</button>
-</form>
+<div class="bg-white p-10 rounded-lg">
+	<h2 class="font-semibold text-2xl mb-5">Sign In to your account</h2>
+	<form method="post">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button type="submit"
+			class="pointer p-2 bg-purple-700 hover:bg-purple-600 transition text-white font-semibold rounded-md w-full">
+			Sign In &rarr;
+		</button>
+	</form>
+	<p class="mt-2 text-sm">
+		Don't have an account?
+		<a href="{% url 'signup' %}" class="text-purple-600 underline font-semibold">Sign Up</a>
+	</p>
+</div>
 {% endblock %}
