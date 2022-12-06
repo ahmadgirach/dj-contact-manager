@@ -5,17 +5,17 @@
 {% block title %} Create Contact {% endblock %}
 
 {% block content %}
-<div class="bg-white p-10 rounded-lg">
+<div class="bg-white p-10 rounded-lg mx-auto w-1/2">
     <h3 class="text-2xl text-center mb-3">{% if is_editing %} Update {% else %} Create {% endif %} Contact</h3>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
-        <div class="flex justify-between items-center gap-2 mt-3">
+        <div class="flex justify-between items-center gap-2 mt-5">
             <a href="{% url 'home' %}"
                 class="cursor-pointer p-2 font-semibold bg-zinc-300 text-center rounded-md w-1/2">Cancel</a>
             <button type="submit"
                 class="cursor-pointer p-2 bg-purple-700 hover:bg-purple-600 transition text-white font-semibold rounded-md w-1/2">
-                {% if is_editing %} Update {% else %} Create {% endif %} &rarr;
+                {% if is_editing %} Update {% else %} Create {% endif %}
             </button>
         </div>
     </form>

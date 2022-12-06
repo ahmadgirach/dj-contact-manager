@@ -3,6 +3,7 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.views.decorators.cache import never_cache
 
@@ -62,10 +63,29 @@ def signin_view(request):
 @never_cache
 @login_required
 def homepage_view(request):
-    contacts = Contact.objects.all()
+    current_user = request.user
+    search = request.GET.get("search")
+
+    query = Q()
+
+    if not current_user.is_superuser:
+        query &= Q(user=current_user)
+
+    if search:
+        query &= (
+            Q(first_name__icontains=search)
+            | Q(last_name__icontains=search)
+            | Q(email__icontains=search)
+            | Q(organization__icontains=search)
+            | Q(phone_number__icontains=search)
+        )
+
+    contacts = Contact.objects.filter(query)
+
     context = {
         "contacts": contacts,
     }
+
     return render(request, "home.html", context)
 
 
@@ -95,12 +115,19 @@ def credits_view(request):
         },
         {"category": "Icons", "caption": "Hero Icons", "url": "https://heroicons.com"},
         {
-            "category": "Table design",
+            "category": "Table & Search box design",
             "caption": "Flowbite",
             "url": "https://flowbite.com",
         },
+        {
+            "category": "Alerts",
+            "caption": "SweetAlert2",
+            "url": "https://sweetalert2.github.io",
+        },
     )
+
     context = {
         "links": links,
     }
+
     return render(request, "credits.html", context)

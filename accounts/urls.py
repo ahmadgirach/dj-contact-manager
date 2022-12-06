@@ -1,4 +1,8 @@
+""" STANDARD DJANGO IMPORTS """
+
 from django.urls import path
+
+""" LOCAL APP IMPORTS """
 
 from .views import homepage_view, logout_view, signin_view, signup_view, credits_view
 

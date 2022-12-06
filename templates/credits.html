@@ -3,15 +3,18 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h3 class="text-2xl text-center mb-10">This project uses the following tools / technologies.</h3>
-<ul>
-    {% for link in links %}
-    <li class="text-sm">
-        {{ link.category }}:
-        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="text-purple-700 font-semibold">
-            {{ link.caption }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+
+<div class="mx-auto text-center">
+    <h3 class="text-2xl mb-10">This project uses following stuff.</h3>
+    <ul>
+        {% for link in links %}
+        <li class="text-sm">
+            {{ link.category }}:
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="text-purple-700 font-semibold">
+                {{ link.caption }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

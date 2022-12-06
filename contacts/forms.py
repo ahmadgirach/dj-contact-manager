@@ -1,4 +1,8 @@
+""" STANDARD DJANGO IMPORTS """
+
 from django.forms import ModelForm
+
+""" LOCAL APP IMPORTS """
 
 from .models import Contact
 

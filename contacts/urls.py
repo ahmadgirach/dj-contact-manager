@@ -1,4 +1,8 @@
+""" STANDARD DJANGO IMPORTS """
+
 from django.urls import path
+
+""" LOCAL APP IMPORTS """
 
 from .views import create_view, delete_view, edit_view, toggle_favourite
 
