@@ -62,14 +62,16 @@
                             alt="Contact Avatar">
                         <div class="pl-3">
                             <div class="text-base font-semibold">{{ contact.get_full_name }}</div>
-                            <div class="font-normal text-gray-600">{{ contact.email }}</div>
+                            <div class="font-normal text-gray-600">
+                                {% if contact.email %} {{ contact.email }} {% else %} - {% endif %}
+                            </div>
                         </div>
                     </th>
                     <td class="py-4 px-6">
-                        {{ contact.phone_number }}
+                        {% if contact.phone_number %} {{ contact.phone_number }} {% else %} - {% endif %}
                     </td>
                     <td class="py-4 px-6">
-                        {{ contact.organization }}
+                        {% if contact.organization %} {{ contact.organization }} {% else %} - {% endif %}
                     </td>
                     <td class="py-4 px-6">
                         <a href="{% url 'contacts:edit' contact.pk %}" title="Edit Contact">
