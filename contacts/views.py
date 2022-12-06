@@ -62,3 +62,13 @@ def delete_view(request, pk):
     if request.method == "POST":
         contact.delete()
         return redirect("home")
+
+
+@login_required
+def toggle_favourite(request, pk):
+    contact = Contact.objects.get(pk=pk)
+
+    if request.method == "POST":
+        contact.is_favourite = not contact.is_favourite
+        contact.save()
+        return redirect("home")

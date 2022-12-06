@@ -26,7 +26,7 @@ class Contact(models.Model):
         null=True,
         help_text=_(
             "Designates whether this contact has been marked as Favourite or not."
-        )
+        ),
     )
     user = models.ForeignKey(
         UserModel,
