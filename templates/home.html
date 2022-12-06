@@ -12,7 +12,7 @@
         <div class="flex justify-center items-center gap-5">
             <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
             <div class="relative w-1/3">
-                <input type="search" id="search" name="search" autofocus
+                <input type="search" id="search" name="search"
                     class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-purple-50"
                     placeholder="Search Contacts..." required>
                 <button type="submit"
@@ -148,7 +148,7 @@
             {% if page_obj.has_next %}
             <li>
                 <a href="?page={{ page_obj.next_page_number }}"
-                    class="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    class="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">
                     <span class="sr-only">Next</span>
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
