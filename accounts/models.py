@@ -27,8 +27,8 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     """
-    By default, ``username`` field is required and unique; but we want to use
-    email as login field. Thus, need to mark this field as optional, otherwise
+    By default, ``username`` field is unique; but we want to use
+    email as login field. Thus, need to mark this field as non-unique, otherwise
     it'll raise integrity constraint errors.
     """
 
