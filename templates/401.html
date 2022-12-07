@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} 401 {% endblock %}
+
+{% block content %}
+<div class="mx-auto text-center">
+    <h1 class="text-5xl">401.</h1>
+    <h3 class="text-2xl">You're not authorized to view this page.</h3>
+    <p>
+        Try going back to
+        <a href="{% url 'home' %}" class="text-purple-700 font-semibold">Home page.</a>
+    </p>
+</div>
+{% endblock %}

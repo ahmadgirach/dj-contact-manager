@@ -65,6 +65,13 @@ def signin_view(request):
 @never_cache
 @login_required
 def homepage_view(request):
+    """If user is inactive for 1 hour(s) then on next request, user will be logged out."""
+    SECONDS = 60
+    MINUTES = 60
+    HOURS = 1
+    duration = SECONDS * MINUTES * HOURS
+    request.session.set_expiry(duration)
+
     current_user = request.user
     params = request.GET
 
@@ -123,7 +130,7 @@ def credits_view(request):
         },
         {"category": "Icons", "caption": "Hero Icons", "url": "https://heroicons.com"},
         {
-            "category": "Table, Search box design & Pagination",
+            "category": "Table, Search box & Pagination designs",
             "caption": "Flowbite",
             "url": "https://flowbite.com",
         },
