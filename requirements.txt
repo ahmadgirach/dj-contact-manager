@@ -2,3 +2,7 @@ django
 pillow
 django-crispy-forms
 crispy-tailwind
+gunicorn
+python-dotenv
+psycopg2
+whitenoise

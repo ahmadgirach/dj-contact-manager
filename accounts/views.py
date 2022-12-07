@@ -93,10 +93,12 @@ def homepage_view(request):
     contacts = Contact.objects.filter(query).order_by("pk")
     paginator = Paginator(contacts, settings.RECORDS_PER_PAGE)
     page_obj = paginator.get_page(current_page)
+    num_of_pages = page_obj.paginator.num_pages
 
     context = {
         "page_obj": page_obj,
-        "no_of_pages_range": range(1, page_obj.paginator.num_pages + 1),
+        "no_of_pages_range": range(1, num_of_pages + 1),
+        "show_pagination": num_of_pages > 1,
     }
 
     return render(request, "home.html", context)
