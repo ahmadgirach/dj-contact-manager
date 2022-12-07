@@ -26,8 +26,6 @@ def signup_view(request):
             form.save()
             success = True
             messages.success(request, "User created successfully!")
-        else:
-            messages.error(request, "Please fix the errors!")
 
     context = {
         "form": form,

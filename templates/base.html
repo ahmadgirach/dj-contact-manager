@@ -17,7 +17,9 @@
 	{% include 'navbar.html' %}
 	<main class="mt-5 flex flex-1 flex-col w-3/4">
 		{% block content %}{% endblock %}
-		{% include 'messages.html' %}
+		<div class="mx-auto mt-3">
+			{% include 'messages.html' %}
+		</div>
 	</main>
 	{% include 'footer.html' %}
 
