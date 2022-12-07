@@ -28,6 +28,6 @@ If you like this project, make sure to give it a star and share with your friend
 
 ### Previews
 
-![](previews/signin.png)
-![](previews/signup.png)
-![](previews/home.png)
+![Sign In](previews/signin.png)
+![Sign Up](previews/signup.png)
+![Home](previews/home.png)
