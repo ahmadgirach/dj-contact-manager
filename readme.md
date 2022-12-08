@@ -1,4 +1,4 @@
-\*\*\*\*### Contact Manager
+### Contact Manager
 
 Minimalist yet feature rich contact manager web application using Django + Tailwind CSS.
 
