@@ -26,8 +26,12 @@ Assuming you have `python3` installed. Type the following commands to get starte
 
 If you like this project, make sure to give it a star and share with your friends.
 
-<!-- ### Previews
+### License
+
+CC by 4.0
+
+### Previews
 
 ![Sign In](previews/signin.png)
 ![Sign Up](previews/signup.png)
-![Home](previews/home.png) -->
+![Home](previews/home.png)
