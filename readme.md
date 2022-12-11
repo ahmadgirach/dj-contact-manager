@@ -28,10 +28,10 @@ If you like this project, make sure to give it a star and share with your friend
 
 ### License
 
-This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
-<!-- ### Previews
+### Previews
 
-![Sign In](previews/signin.png)
-![Sign Up](previews/signup.png)
-![Home](previews/home.png) -->
+![](previews/signin.png)
+![](previews/signup.png)
+![](previews/home.png)
