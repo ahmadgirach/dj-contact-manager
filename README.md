@@ -8,13 +8,10 @@ Assuming you have `python3` installed. Type the following commands to get starte
 
 - First, create a virtual environment: `python3 -m venv venv`
 - Activate it: `source venv/bin/activate`
-- Install requirements: `pip install -r requirements.txt`
-- Create a .env file inside main directory (copy contents from .env.example file).
-- Change the config values as per your need inside .env file.
-- `python manage.py makemigrations`
-- `python manage.py migrate`
-- `python manage.py runserver`
-- Project should be running at `localhost:8000`
+- Create a .env file in root directory (copy contents from .env.example file).
+- Run ```docker compose up```
+- Run ```docker compose exec web python manage.py migrate```
+- Vist: `localhost:8000`
 
 ### Features
 
