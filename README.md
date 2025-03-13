@@ -10,7 +10,7 @@ Assuming you have `python3` installed. Type the following commands to get starte
 - Activate it: `source venv/bin/activate`
 - Create a .env file in root directory (copy contents from .env.example file).
 - Run ```docker compose up```
-- Run ```docker compose exec web python manage.py migrate```
+- Run ```docker compose exec web python manage.py migrate``` (in separate terminal)
 - Vist: `localhost:8000`
 
 ### Features
