@@ -32,6 +32,6 @@ This work is licensed under a <a rel="license" target="_blank" href="http://crea
 
 ### Previews
 
-![Sign In](previews/signin.png)
-![Sign Up](previews/signup.png)
-![Home](previews/home.png)
+![Sign In](static/assets/images/previews/signin.png)
+![Sign Up](static/assets/images/previews/signup.png)
+![Home](static/assets/images/previews/home.png)
